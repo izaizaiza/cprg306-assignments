@@ -9,7 +9,7 @@ export default function Home() {
         <StudentInfo />
         <nav>
                 <ul>
-                    <li><Link href="http://localhost:3000/week2">Week2</Link></li>
+                    <li><Link href="/week2">Week2</Link></li>
                 </ul>
             </nav>      
       </div>
