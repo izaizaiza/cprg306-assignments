@@ -2,10 +2,10 @@
 
 export default function Item({ name, quantity, category }) {
     return (
-        <section className="flex flex-col justify-content: flex-start; p-24 bg-">
-            <h3 className="text-lg">{name}</h3>
-            <p>Buy {quantity} in {category}</p>
-        </section>
+        <div className="flex: 1 1 auto; p-5 space-x-1 bg-green-400">
+            <h3 className="text-xl">{name}</h3>
+            <p className= "text-xs">Buy {quantity} in {category}</p>
+        </div>
         
     );
   }
