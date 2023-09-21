@@ -1,13 +1,11 @@
 
 
-export default function Item(name, quantity, category) {
+export default function Item({ name, quantity, category }) {
     return (
-        <ul>
-            <li class="p-2 m-4 bg-slate-800 max-w-sm">
-                {name}
-                Buy {quantity} in {category}
-            </li>
-        </ul>
+        <section className="flex flex-col justify-content: flex-start; p-24">
+            <h3 className="text-lg">{name}</h3>
+            <p>Buy {quantity} in {category}</p>
+        </section>
         
     );
   }
