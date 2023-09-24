@@ -9,7 +9,8 @@ export default function StudentInfo() {
             <p class= "text-md ml-5">GitHub link: 
                 <Link 
                     href={"https://github.com/izaizaiza/cprg306-assignments.git"}
-                    target="_blank">
+                    target="_blank"
+                    class="hover:text-custom-orange">
                         https://github.com/izaizaiza/cprg306-assignments.git
                 </Link> </p>
         </div>
