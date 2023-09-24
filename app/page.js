@@ -3,16 +3,20 @@ import StudentInfo from './StudentInfo'
 import Link from 'next/link'
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <h1 className="text-4xl">CPRG 306: Web Development 2 - Assignments</h1>
+    <main className="flex min-h-screen flex-col p-10">
+      <div className="max-w-5xl w-full items-center font-mono text-sm lg:flex">
+        <h1 className="text-4xl">CPRG 306: Web Development 2 - Assignments</h1>      
+      </div>
+
+      <div class="pt-10">
         <StudentInfo />
-        <nav>
-                <ul>
-                    <li><Link href="/week2">Week2</Link></li>
-                    <li><Link href="/week3">Week3</Link></li>
-                </ul>
-        </nav>      
+      </div>
+
+      <div>
+        <nav class="flex flex-col justify-between mt-3 bg-custom-slate rounded-md">
+          <Link href="/week2" class="p-3 hover:bg-custom-orange">Week2</Link>
+          <Link href="/week3" class ="p-3 hover:bg-custom-orange">Week3</Link>
+        </nav>
       </div>
 
       
