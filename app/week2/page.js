@@ -1,6 +1,7 @@
 import StudentInfo from "../StudentInfo";
 import Link from 'next/link'
 import ItemList from "../week3/item-list"
+import Page from "../week3/page"
 
 export default function Week2() {
     return (
@@ -27,7 +28,7 @@ export default function Week2() {
                 </div>
                 
                 <div>
-                    <ItemList class="flex-wrap: wrap; max-w-5xl"></ItemList>
+                    <Page></Page>
                 </div>
 
             </div>
