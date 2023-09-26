@@ -16,7 +16,7 @@ export default function Home() {
         <nav class="flex flex-col justify-between mt-3 bg-custom-slate rounded-md">
           <Link href="/week2" class="p-3 hover:bg-custom-orange">Week2</Link>
           <Link href="/week3" class ="p-3 hover:bg-custom-orange">Week3</Link>
-          <Link href="/week4" class ="p-3 hover:bg-custom-orange">Week3</Link>
+          <Link href="/week4" class ="p-3 hover:bg-custom-orange">Week4</Link>
         </nav>
       </div>
 
