@@ -79,7 +79,7 @@ export default function ItemList() {
 
     return (
         <ul>
-            <li class="py-2 bg-gray-900">
+            <li className="py-2 bg-gray-900">
             <Item
                 name = {item1.name}
                 quantity = {item1.quantity}
@@ -87,7 +87,7 @@ export default function ItemList() {
             />
             </li>
         
-            <li class="py-2 bg-gray-900">
+            <li className="py-2 bg-gray-900">
             <Item
                 name = {item2.name}
                 quantity = {item2.quantity}
@@ -96,7 +96,7 @@ export default function ItemList() {
             </li>
         
 
-            <li class="py-2 bg-gray-900">
+            <li className="py-2 bg-gray-900">
             <Item
                 name = {item3.name}
                 quantity = {item3.quantity}
@@ -105,7 +105,7 @@ export default function ItemList() {
             </li>
         
         
-            <li class="py-2 bg-gray-900">
+            <li className="py-2 bg-gray-900">
             <Item
                 name = {item4.name}
                 quantity = {item4.quantity}
@@ -115,7 +115,7 @@ export default function ItemList() {
         
             
         
-            <li class="py-2 bg-gray-900">
+            <li className="py-2 bg-gray-900">
             <Item
                 name = {item5.name}
                 quantity = {item5.quantity}
@@ -124,7 +124,7 @@ export default function ItemList() {
             </li>
         
         
-            <li class="py-2 bg-gray-900">
+            <li className="py-2 bg-gray-900">
             <Item
                 name = {item6.name}
                 quantity = {item6.quantity}
@@ -133,7 +133,7 @@ export default function ItemList() {
             </li>
         
         
-            <li class="py-2 bg-gray-900">
+            <li className="py-2 bg-gray-900">
             <Item
                 name = {item7.name}
                 quantity = {item7.quantity}
@@ -143,7 +143,7 @@ export default function ItemList() {
 
         
         
-            <li class="py-2 bg-gray-900">
+            <li className="py-2 bg-gray-900">
             <Item 
                 name = {item8.name}
                 quantity = {item8.quantity}
@@ -152,7 +152,7 @@ export default function ItemList() {
             </li>
         
         
-            <li class="py-2 bg-gray-900">
+            <li className="py-2 bg-gray-900">
             <Item 
                 name = {item9.name}
                 quantity = {item9.quantity}
@@ -160,7 +160,7 @@ export default function ItemList() {
             />
             </li>
 
-            <li class="py-2 bg-gray-900">
+            <li className="py-2 bg-gray-900">
             <Item 
                 name = {item10.name}
                 quantity = {item10.quantity}
@@ -169,7 +169,7 @@ export default function ItemList() {
             </li>
         
         
-            <li class="py-2 bg-gray-900">
+            <li className="py-2 bg-gray-900">
             <Item 
             name = {item11.name}
             quantity = {item11.quantity}
@@ -178,7 +178,7 @@ export default function ItemList() {
             </li>
         
         
-            <li class="py-2 bg-gray-900">
+            <li className="py-2 bg-gray-900">
             <Item 
                 name = {item12.name}
                 quantity = {item12.quantity}
