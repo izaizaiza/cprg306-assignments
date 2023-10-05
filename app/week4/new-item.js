@@ -84,7 +84,7 @@ export default function NewItem(){
                         type="submit"
                         className = "bg-custom-slate hover:bg-custom-orange w-20 text-center rounded-md"
                         >
-                            Submit</submit>
+                        Submit</submit>
 
                     </div>
     
