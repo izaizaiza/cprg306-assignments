@@ -18,7 +18,12 @@ export default function NewItem(){
         const item = {name, quantity, category };
         console.log(item);
 
-        alert(`You are submitting name:${name}, quantity:${quantity}, and quantity:${category}.`);
+        
+        alert(
+            `You are submitting a new item: 
+            ${name}, 
+            quantity: ${quantity}, 
+            and under the category: ${category}`);
 
         // reset state of variables
         setName("");
@@ -32,10 +37,9 @@ export default function NewItem(){
             
             <div className="m-10">
                 <h2 className="text-center">Add New Item</h2>
-                <form onSubmit={handleSubmit}
-                    className = "flex flex-row justify-center  rounded-md bg-custom-slate">
+                <form className = "flex flex-row justify-center w-24 rounded-md bg-custom-slate">
                     
-                    <div className="flex flex-col m-5 space-y-5">
+                    <div className="flex flex-col  m-5 space-y-5 text-lg">
                         <label htmlFor="name">Name</label>
                         <label htmlFor="quantity">Quantity</label>
                         <label htmlFor="category">Category</label>
@@ -81,6 +85,7 @@ export default function NewItem(){
                         </select>
 
                         <submit 
+                        onClick = {handleSubmit}
                         type="submit"
                         className = "bg-custom-slate hover:bg-custom-orange w-20 text-center rounded-md"
                         >
