@@ -35,14 +35,14 @@ export default function NewItem(){
     return(
         <main>
             
-            <div className="m-10">
-                <h2 className="text-center">Add New Item</h2>
-                <form className = "flex flex-row justify-center w-24 rounded-md bg-custom-slate">
+            <div className="m-10 justify-between">
+                <h2 className="text-center text-2xl p-5">Add New Item</h2>
+                <form className = "flex flex-row justify-center rounded-md bg-custom-slate">
                     
                     <div className="flex flex-col  m-5 space-y-5 text-lg">
-                        <label htmlFor="name">Name</label>
-                        <label htmlFor="quantity">Quantity</label>
-                        <label htmlFor="category">Category</label>
+                        <label className= "text-xl p-1" htmlFor="name">Name</label>
+                        <label className= "text-xl p-1" htmlFor="quantity">Quantity</label>
+                        <label className= "text-xl p-1" htmlFor="category">Category</label>
 
                     </div>
 
@@ -52,7 +52,7 @@ export default function NewItem(){
                             type = "text"
                             value = {name}
                             onChange = {(event) => setName(event.target.value)}
-                            className = "bg-black rounded-md text-custom-white"
+                            className = "bg-black rounded-md text-custom-white text-xl p-1"
                         />
 
                         <input
@@ -62,14 +62,14 @@ export default function NewItem(){
                             max={99}
                             value = {quantity}
                             onChange = {(event) => setQuantity(event.target.value)}
-                            className = "bg-black rounded-md text-custom-white"
+                            className = "bg-black rounded-md text-custom-white text-xl p-1"
                         />
 
                         <select
                         id = "category"
                         value = {category}
                         onChange={(event) => setCategory(event.target.value)}
-                        className = "bg-black rounded-md text-custom-white"
+                        className = "bg-black rounded-md text-custom-white text-xl p-1"
                         >
                             <option value="produce">Produce</option>
                             <option value="dairy">Dairy</option>
@@ -87,7 +87,7 @@ export default function NewItem(){
                         <submit 
                         onClick = {handleSubmit}
                         type="submit"
-                        className = "bg-custom-slate hover:bg-custom-orange w-20 text-center rounded-md"
+                        className = "bg-custom-slate hover:bg-custom-orange w-20 text-center rounded-md text-xl p-1"
                         >
                         Submit</submit>
 
