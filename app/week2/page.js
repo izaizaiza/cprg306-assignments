@@ -14,7 +14,7 @@ export default function Week2() {
                         CPRG 306: Web Development 2 - Assignments
                     </h1>
 
-                    <nav className="flex flex-shrink bg-custom-orange p-3">
+                    <nav className="flex flex-shrink bg-custom-orange p-3 self-start">
                         <Link href="/" class="hover:text-custom-slate">Home</Link>
                     </nav>
 

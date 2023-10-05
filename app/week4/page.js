@@ -13,8 +13,8 @@ export default function Page() {
                     CPRG 306: Web Development 2 - Assignments
                 </h1>
 
-                <nav className="flex flex-shrink bg-custom-orange p-3">
-                    <Link href="/" class="hover:text-custom-slate">Home</Link>
+                <nav className="flex flex-shrink bg-custom-orange p-3 self-start">
+                    <Link href="/" className="hover:text-custom-slate text-center align-middle text-lg">Home</Link>
                 </nav>
 
             </div>
