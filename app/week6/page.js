@@ -1,8 +1,27 @@
+
+"use client"
+import { useState } from "react";
 import StudentInfo from "../StudentInfo";
 import Link from 'next/link'
 import ItemList from "./item-list"
+import NewItem from "./new-item";
+import itemsData from "./items.json";
 
 export default function Week6() {
+
+    // 1.initialize state variable items with itemsData
+    let [items, setItems] = useState(itemsData);
+
+    //2. create event handler function handleAddItem
+    const handleAddItem = (item) => {
+        // 1. create a copy of items array
+        // 2. add item to the copy
+        // 3. setItems to the copy
+        let copy = [...items];
+        copy.push(item);
+        setItems(copy);
+    };
+
     return (
         <main>
             <div className="flex flex-col">
@@ -25,6 +44,8 @@ export default function Week6() {
                 </div>
 
                 <div>
+                    <NewItem className="flex flex-row"
+                    onAddItem = {handleAddItem}></NewItem>
                     <ItemList className="flex-wrap: wrap; max-w-5xl"></ItemList>
                 </div>
 
