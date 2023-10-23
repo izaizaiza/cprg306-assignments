@@ -18,6 +18,7 @@ export default function Home() {
           <Link href="/week3" class ="p-3 hover:bg-custom-orange">Week3</Link>
           <Link href="/week4" class ="p-3 hover:bg-custom-orange">Week4</Link>
           <Link href="/week5" class ="p-3 hover:bg-custom-orange">Week5</Link>
+          <Link href="/week6" class ="p-3 hover:bg-custom-orange">Week6</Link>
         </nav>
       </div>
 
