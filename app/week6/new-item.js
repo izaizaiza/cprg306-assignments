@@ -5,7 +5,7 @@
 import { useState } from "react"; 
 
 
-export default function NewItem(){
+export default function NewItem({onAddItem}){
 
     const [name, setName] = useState("");
     const [quantity, setQuantity] = useState(1);
@@ -16,8 +16,9 @@ export default function NewItem(){
         event.preventDefault();
         
         const item = {name, quantity, category };
-        console.log(item);
+        //console.log(item);
 
+        onAddItem(item);
         
         alert(
             `You are submitting a new item: 
@@ -33,6 +34,8 @@ export default function NewItem(){
         setCategory("produce");
 
     }
+
+    
 
     return(
         
@@ -62,7 +65,7 @@ export default function NewItem(){
                         min={1}
                         max={99}
                         value = {quantity}
-                        onChange = {(event) => setQuantity(event.target.value)}
+                        onChange = {(event) => setQuantity(parseInt(event.target.value))}
                         className = "bg-black rounded-md text-custom-white text-xl p-1"
                     />
 

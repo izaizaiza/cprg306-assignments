@@ -13,14 +13,16 @@ export default function Week6() {
     let [items, setItems] = useState(itemsData);
 
     //2. create event handler function handleAddItem
-    const handleAddItem = (item) => {
+    const handleAddItem = (newItem) => {
         // 1. create a copy of items array
         // 2. add item to the copy
         // 3. setItems to the copy
         let copy = [...items];
-        copy.push(item);
+        copy.push(newItem);
         setItems(copy);
     };
+
+    
 
     return (
         <main>
@@ -44,9 +46,14 @@ export default function Week6() {
                 </div>
 
                 <div>
-                    <NewItem className="flex flex-row"
+                    <NewItem 
+                    className="flex flex-row"
                     onAddItem = {handleAddItem}></NewItem>
-                    <ItemList className="flex-wrap: wrap; max-w-5xl"></ItemList>
+
+                    <ItemList 
+                    className="flex-wrap: wrap; max-w-5xl"
+                    items = {items}
+                    ></ItemList>
                 </div>
 
                 </div>

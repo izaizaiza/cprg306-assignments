@@ -2,12 +2,12 @@
 
 
 import { useState } from "react";
-import itemsData from "./items.json";
+//import itemsData from "./items.json";
 import Item from "./item.js";
 
 
 
-export default function ItemList() {
+export default function ItemList({items}) {
 
     
     
@@ -20,7 +20,7 @@ export default function ItemList() {
     // if sortBy is name, sort the items by name
     // if sortBy is category, sort the items by category
     
-    let sortedItems = itemsData.sort((a, b) => {
+    let sortedItems = items.sort((a, b) => {
         if (sortBy === "name") {
             return a.name.localeCompare(b.name);
         } else {
