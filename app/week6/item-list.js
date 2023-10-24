@@ -34,12 +34,14 @@ export default function ItemList({items}) {
     
 
     return (
-        <div>
+        <div className = "m-10 justify-between max-w-md ">
         <div>
             <div
-            className="flex flex-row gap-5"
+            className="flex flex-row p-4 my-4 ml-4"
             >
-                <p>Sort by:</p>
+                <p
+                className="p-1"
+                >Sort by:</p>
 
                 <button
                 className="p-1 w-40 bg-custom-orange hover:text-custom-slate "
