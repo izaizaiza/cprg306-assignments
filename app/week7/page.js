@@ -8,7 +8,7 @@ import NewItem from "./new-item";
 import itemsData from "./items.json";
 import MealIdeas from "./meal-ideas";
 
-export default function Week6() {
+export default function Week7() {
 
     // 1.initialize state variable items with itemsData
     let [items, setItems] = useState(itemsData);
@@ -25,12 +25,13 @@ export default function Week6() {
 
 
     // add new state variable to hold the name of the selected item from the shopping list
-    let [selectedITemName, setSelectedItemName] = useState("");
+    let [selectedItemName, setSelectedItemName] = useState("");
 
     // create event handler function handleItemSelect
     const handleItemSelect = (item) => {
         // clean up the item name by removing size and emoji
-        const cleanedItemName = item.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|�[�-�]|�[�-�]|[\u2011-\u26FF]|�[�-�])/g, '').trim();
+        //const cleanedItemName = item.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|�[�-�]|�[�-�]|[\u2011-\u26FF]|�[�-�])/g, '');
+        const cleanedItemName = item.split(',')[0].trim();
         setSelectedItemName(cleanedItemName);
     };
 
@@ -57,16 +58,24 @@ export default function Week6() {
                     </div>
                 </div>
 
-                <div>
-                    <NewItem 
-                    className="flex flex-row"
-                    onAddItem = {handleAddItem}></NewItem>
+                <div className="flex">
+                    <div className="flex flex-row">
+                        <NewItem 
+                        className="flex flex-row"
+                        onAddItem = {handleAddItem}></NewItem>
 
-                    <ItemList 
-                    className="flex-wrap: wrap; max-w-5xl"
-                    items = {items}
-                    onItemSelect={handleItemSelect}
-                    ></ItemList>
+                        <ItemList 
+                        className="flex-wrap: wrap; max-w-5xl"
+                        items = {items}
+                        onItemSelect={handleItemSelect}
+                        ></ItemList>
+                    </div>
+
+                    <div className="flex flex-row">
+                        <MealIdeas 
+                        className="flex flex-col"
+                        ingredient={selectedItemName}></MealIdeas>
+                    </div>
                 </div>
 
                 </div>

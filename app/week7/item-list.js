@@ -2,7 +2,6 @@
 
 
 import { useState } from "react";
-//import itemsData from "./items.json";
 import Item from "./item.js";
 
 
@@ -44,14 +43,14 @@ export default function ItemList({items, onItemSelect}) {
                 >Sort by:</p>
 
                 <button
-                className="p-1 w-40 bg-custom-orange hover:text-custom-slate "
+                className="p-1 w-40 bg-custom-orange hover:bg-custom-slate active:bg-custom-slate"
                 onClick={() => setSortBy('name')}
                 >
                     Sort by Name
                 </button>
 
                 <button
-                className="p-1 w-40 bg-custom-orange hover:text-custom-slate"
+                className="p-1 w-40 bg-custom-orange hover:bg-custom-slate active:bg-custom-slate"
                 onClick={() => setSortBy('category')}
                 >
                     Sort by Category
@@ -61,7 +60,8 @@ export default function ItemList({items, onItemSelect}) {
         </div>
         <ul>
             {sortedItems.map(item => (
-            <Item key={item.id} {...item} 
+            <Item 
+            key={item.id} {...item} 
             onSelect={onItemSelect}/>
             ))}
         </ul>

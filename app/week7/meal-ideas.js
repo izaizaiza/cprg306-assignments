@@ -12,6 +12,7 @@ export default function MealIdeas({ ingredient }){
         setMeals(data);
     }
 
+
     //use the useEffect hook to call loadMealIdeas whenever the ingredient prop changes
     useEffect(() => {
         loadMealIdeas();
@@ -19,11 +20,16 @@ export default function MealIdeas({ ingredient }){
     
 
     return(
-        <div>
-            <h2>Meal Ideas with {ingredient}</h2>
+        <div
+        className="m-10">
+            <h2 className="text-2xl my-4"
+            >Meal Ideas with {ingredient}</h2>
             <ul>
-                {meals.map((meal) => (
-                    <li key={meal.idMeal}>{meal.strMeal}</li>
+                {meals && meals.map((meal) => (
+                    <li 
+                    key={meal.idMeal}
+                    className="p-2 my-2 bg-custom-slate flex-wrap: wrap; max-w-md hover:bg-custom-orange rounded-md"
+                    >{meal.strMeal}</li>
                 ))}
             </ul>
         </div>
@@ -34,10 +40,11 @@ export default function MealIdeas({ ingredient }){
 async function fetchMealIdeas(ingredient){
 
     try{
-        const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}');
+        const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
         if (response.ok){
             const data = await response.json();
-            return data;
+            console.log("data:",data);
+            return data.meals;
         }
         else{
             throw new Error("Error fetching meals");
