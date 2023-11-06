@@ -36,7 +36,7 @@ export default function ItemList({items, onItemSelect}) {
         <div className = "m-10 justify-between max-w-md ">
         <div>
             <div
-            className="flex flex-row p-4 my-4 ml-4"
+            className="flex flex-row p-2 ml-4"
             >
                 <p
                 className="p-1"

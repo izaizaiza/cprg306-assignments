@@ -72,20 +72,22 @@ export default function Page() {
 
                 <div className="flex">
                     <div className="flex flex-row">
-                        <NewItem 
-                        className="flex flex-row"
-                        onAddItem = {handleAddItem}></NewItem>
+                        <div className="flex flex-col">
+                            <NewItem 
+                            className="flex flex-col"
+                            onAddItem = {handleAddItem}></NewItem>
 
-                        <ItemList 
-                        className="flex-wrap: wrap; max-w-5xl"
-                        items = {items}
-                        onItemSelect={handleItemSelect}
-                        ></ItemList>
+                            <ItemList 
+                            className="flex flex-col; max-w-5xl"
+                            items = {items}
+                            onItemSelect={handleItemSelect}
+                            ></ItemList>
+                        </div>
                     </div>
 
                     <div className="flex flex-row">
                         <MealIdeas 
-                        className="flex flex-col"
+                        className=""
                         ingredient={selectedItemName}></MealIdeas>
                     </div>
                 </div>
