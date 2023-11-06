@@ -1,14 +1,16 @@
 
 "use client"
 import { useState } from "react";
-import StudentInfo from "../StudentInfo";
+import { useUserAuth } from "../_utils/auth-context";
+import StudentInfo from "./StudentInfo";
 import Link from 'next/link'
 import ItemList from "./item-list"
 import NewItem from "./new-item";
 import itemsData from "./items.json";
 import MealIdeas from "./meal-ideas";
 
-export default function Week7() {
+
+export default function Page() {
 
     // 1.initialize state variable items with itemsData
     let [items, setItems] = useState(itemsData);
@@ -34,6 +36,16 @@ export default function Week7() {
         const cleanedItemName = item.split(',')[0].trim();
         setSelectedItemName(cleanedItemName);
     };
+
+
+    // chek if user is logged in using useUserAuth hook
+    //conditionally render the shopping page list  or 
+    // redirect the user to the landing page if user object is null
+    const { user } = useUserAuth();
+    if (user === null) {
+        window.location.href = "/";
+        return null;
+    }
 
     
 
