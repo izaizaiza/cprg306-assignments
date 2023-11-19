@@ -1,28 +1,40 @@
 
 "use client"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useUserAuth } from "../_utils/auth-context";
 import StudentInfo from "./StudentInfo";
 import Link from 'next/link'
 import ItemList from "./item-list"
 import NewItem from "./new-item";
-import itemsData from "./items.json";
 import MealIdeas from "./meal-ideas";
+import { getItems, addItem } from "../_services/shopping-list-service";
 
 
 export default function Page() {
 
     // 1.initialize state variable items with itemsData
-    let [items, setItems] = useState(itemsData);
+    let [items, setItems] = useState([]);
 
     //2. create event handler function handleAddItem
-    const handleAddItem = (newItem) => {
-        // 1. create a copy of items array
-        // 2. add item to the copy
-        // 3. setItems to the copy
-        let copy = [...items];
-        copy.push(newItem);
-        setItems(copy);
+    const handleAddItem = async (newItem) => {
+        try{
+            //call addItem service function to add the new item to firestore
+            const addedItem = await addItem(user.uid, newItem);
+
+            //set the id of the new item
+            addedItem.id = addedItem._id; //assuming the id is stored in _id
+
+            // create a copy of the items array and add the new item
+            let copy = [...items];
+            copy.push(addedItem);
+            
+            //set the state variable items to the new array
+            setItems(copy);
+
+        }catch(error){
+            console.log("Error adding item: ",error);
+        }
+        
     };
 
 
@@ -32,13 +44,12 @@ export default function Page() {
     // create event handler function handleItemSelect
     const handleItemSelect = (item) => {
         // clean up the item name by removing size and emoji
-        //const cleanedItemName = item.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|�[�-�]|�[�-�]|[\u2011-\u26FF]|�[�-�])/g, '');
         const cleanedItemName = item.split(',')[0].trim();
         setSelectedItemName(cleanedItemName);
     };
 
 
-    // chek if user is logged in using useUserAuth hook
+    // check if user is logged in using useUserAuth hook
     //conditionally render the shopping page list  or 
     // redirect the user to the landing page if user object is null
     const { user } = useUserAuth();
@@ -46,6 +57,22 @@ export default function Page() {
         window.location.href = "/";
         return null;
     }
+
+
+    // async function to call getItems using the user id
+    // and set the items state variable to the result
+    useEffect(() => {
+        async function loadItems() {
+            try{
+                const items = await getItems(user.uid);
+                setItems(items);
+            } catch(error) {
+                console.log("Error loading items: ",error);
+            }
+        }
+        // call loadItems when component is mounted
+        loadItems();
+    }, [user.uid]);
 
     
 

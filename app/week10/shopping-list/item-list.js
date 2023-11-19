@@ -19,11 +19,15 @@ export default function ItemList({items, onItemSelect}) {
     // if sortBy is name, sort the items by name
     // if sortBy is category, sort the items by category
     
-    let sortedItems = items.sort((a, b) => {
-        if (sortBy === "name") {
-            return a.name.localeCompare(b.name);
+    let sortedItems = [...items].sort((a, b) => {
+        const propA = sortBy === "name" ? a.name : a.category;
+        const propB = sortBy === "name" ? b.name : b.category;
+
+        if (propA && propB) {
+            return propA.localeCompare(propB);
         } else {
-            return a.category.localeCompare(b.category);
+            // if propA or propB is undefined, sort by category
+            return 0;
         }
     });
 

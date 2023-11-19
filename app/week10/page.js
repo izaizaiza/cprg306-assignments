@@ -1,6 +1,6 @@
 "use client";
 
-import { useUserAuth } from "../week8/_utils/auth-context";
+import { useUserAuth } from "../week10/_utils/auth-context";
 import Link from 'next/link'
 
 export default function Week8(){
@@ -20,8 +20,8 @@ export default function Week8(){
 
     return(
         <div className="m-4">
-            <h1 className="text-2xl font-bold">Week 8</h1>
-            <p className="my-4">This is the week 8 page.</p>
+            <h1 className="text-2xl font-bold">Week 10</h1>
+            <p className="my-4">This is the week 10 page.</p>
             
             
             {!user && (
@@ -44,7 +44,7 @@ export default function Week8(){
                         Sign Out
                     </button>
                     <Link 
-                    href="/week8/shopping-list"
+                    href="/week10/shopping-list"
                     className="m-2 p-1 w-40 bg-custom-orange hover:bg-custom-slate active:bg-custom-slate">
                         Shopping List
                         
