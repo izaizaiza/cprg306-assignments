@@ -1,6 +1,6 @@
 
 "use client"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useUserAuth } from "../_utils/auth-context";
 import StudentInfo from "./StudentInfo";
 import Link from 'next/link'
@@ -42,10 +42,13 @@ export default function Page() {
     //conditionally render the shopping page list  or 
     // redirect the user to the landing page if user object is null
     const { user } = useUserAuth();
-    if (user === null) {
-        window.location.href = "/";
-        return null;
-    }
+
+    useEffect(() => {
+        if (user === null) {
+            window.location.href = "/";
+            return null;
+        }
+    }, []);
 
     
 
