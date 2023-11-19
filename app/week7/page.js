@@ -53,7 +53,7 @@ export default function Week7() {
 
                 <div className="mt-10 mb-1 ml-10">
                     <div className="flex flex-row">
-                        <hi className="flex-grow text-4xl ml-5 pt-20 mb-1 text-left align-middle">My Shopping List</hi>
+                        <h1 className="flex-grow text-4xl ml-5 pt-20 mb-1 text-left align-middle">My Shopping List</h1>
                         <StudentInfo className="justify-end flex-shrink"></StudentInfo>
                     </div>
                 </div>
