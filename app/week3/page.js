@@ -26,7 +26,7 @@ export default function Page() {
                 </div>
 
                 <div>
-                    <ItemList class="flex-wrap: wrap; max-w-5xl"></ItemList>
+                    <ItemList className="flex-wrap: wrap; max-w-5xl"></ItemList>
                 </div>
 
                 </div>

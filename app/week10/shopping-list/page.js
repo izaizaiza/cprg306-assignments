@@ -7,7 +7,7 @@ import Link from 'next/link'
 import ItemList from "./item-list"
 import NewItem from "./new-item";
 import MealIdeas from "./meal-ideas";
-import { getItems, addItem } from "../_services/shopping-list-service";
+import { getItems, addItem, deleteItem } from "../_services/shopping-list-service";
 
 
 export default function Page() {
@@ -21,15 +21,24 @@ export default function Page() {
             //call addItem service function to add the new item to firestore
             const addedItem = await addItem(user.uid, newItem);
 
-            //set the id of the new item
-            addedItem.id = addedItem._id; //assuming the id is stored in _id
+            //set the id of the new item to the returned id from addItem
+            newItem.id = addedItem;
 
-            // create a copy of the items array and add the new item
-            let copy = [...items];
-            copy.push(addedItem);
+            // log the added item to check its structure
+            console.log("Added item: ", addedItem);
+
             
+
+            //create a copy of the items array
+            let copy = [...items];
+
+
+            //add the new item to the copy
+            copy.push(addedItem);
+
             //set the state variable items to the new array
             setItems(copy);
+
 
         }catch(error){
             console.log("Error adding item: ",error);
@@ -43,25 +52,42 @@ export default function Page() {
 
     // create event handler function handleItemSelect
     const handleItemSelect = (item) => {
+        //display confirmation dialog for deletion
+        console.log(user.uid, item.id)
+        const confirmDelete = confirm(`Are you sure you want to delete ${item}?`);
+        if(confirmDelete){
+            try{
+                //call deleteItem service function to delete the item from firestore
+                deleteItem(user.uid, item.id);}
+
+            catch(error){
+                console.log("Error deleting item: ",error);
+            }
+            
+        }
+
         // clean up the item name by removing size and emoji
         const cleanedItemName = item.split(',')[0].trim();
         setSelectedItemName(cleanedItemName);
     };
 
 
-    // check if user is logged in using useUserAuth hook
-    //conditionally render the shopping page list  or 
-    // redirect the user to the landing page if user object is null
     const { user } = useUserAuth();
-    if (user === null) {
-        window.location.href = "/";
-        return null;
-    }
 
 
     // async function to call getItems using the user id
     // and set the items state variable to the result
     useEffect(() => {
+        // check if user is logged in using useUserAuth hook
+        //conditionally render the shopping page list  or 
+        // redirect the user to the landing page if user object is null
+        
+        if (user === null) {
+            window.location.href = "/";
+            return null;
+        }
+
+
         async function loadItems() {
             try{
                 const items = await getItems(user.uid);
@@ -72,7 +98,7 @@ export default function Page() {
         }
         // call loadItems when component is mounted
         loadItems();
-    }, [user.uid]);
+    }, [user]);
 
     
 
@@ -92,7 +118,7 @@ export default function Page() {
 
                 <div className="mt-10 mb-1 ml-10">
                     <div className="flex flex-row">
-                        <hi className="flex-grow text-4xl ml-5 pt-20 mb-1 text-left align-middle">My Shopping List</hi>
+                        <h1 className="flex-grow text-4xl ml-5 pt-20 mb-1 text-left align-middle">My Shopping List</h1>
                         <StudentInfo className="justify-end flex-shrink"></StudentInfo>
                     </div>
                 </div>

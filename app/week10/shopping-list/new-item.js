@@ -88,12 +88,12 @@ export default function NewItem({onAddItem}){
                         <option value="other">Other</option>
                     </select>
 
-                    <submit 
+                    <button 
                     onClick = {handleSubmit}
                     type="submit"
-                    className = "bg-custom-slate hover:bg-custom-orange w-20 text-center rounded-md text-xl p-1 border-custom-white border-2"
-                    >
-                    Submit</submit>
+                    className = "bg-custom-slate hover:bg-custom-orange w-20 text-center rounded-md text-xl p-1 border-custom-white border-2">
+                        Submit
+                    </button>
 
                 </div>
 

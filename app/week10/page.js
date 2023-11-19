@@ -3,7 +3,7 @@
 import { useUserAuth } from "../week10/_utils/auth-context";
 import Link from 'next/link'
 
-export default function Week8(){
+export default function Week10(){
 
     const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
 

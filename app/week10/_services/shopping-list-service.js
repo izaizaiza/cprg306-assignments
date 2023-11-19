@@ -1,7 +1,7 @@
 
 
 import { db } from "../_utils/firebase";
-import { collection, getDocs, addDoc, query } from "firebase/firestore";
+import { collection, getDocs, addDoc, query, doc, deleteDoc } from "firebase/firestore";
 
 
 export async function getItems(userId){
@@ -47,4 +47,21 @@ export async function addItem(userId, item){
 
 }
 
+
+export async function deleteItem(userId, itemId){
+    /**
+     * deletes an item from the items sub collection of a user
+     * @param {string} userId
+     * @param {string} itemId
+     */
+
+    // delete a document from the items collection
+    try{
+        const docRef = doc(db, "users", userId, "items", itemId);
+        await deleteDoc(docRef);
+        console.log("Document with ID: ", itemId, " deleted");
+    }catch(error){
+        console.log("Error deleting item: ",error);
+    }
+}
 

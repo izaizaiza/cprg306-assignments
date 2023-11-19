@@ -1,10 +1,13 @@
 
 
+
 export default function Item({ name, quantity, category, onSelect }) {
 
     
     
     function handleClick() {
+        
+        // call the onSelect function from the parent component to set the state variable
         onSelect(name);
     }
 

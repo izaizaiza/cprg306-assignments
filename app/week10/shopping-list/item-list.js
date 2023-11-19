@@ -20,16 +20,18 @@ export default function ItemList({items, onItemSelect}) {
     // if sortBy is category, sort the items by category
     
     let sortedItems = [...items].sort((a, b) => {
-        const propA = sortBy === "name" ? a.name : a.category;
-        const propB = sortBy === "name" ? b.name : b.category;
-
-        if (propA && propB) {
+        const propA = sortBy === 'name' ? a.name : a.category;
+        const propB = sortBy === 'name' ? b.name : b.category;
+    
+        // Check if propA or propB is undefined before using localeCompare
+        if (propA !== undefined && propB !== undefined) {
             return propA.localeCompare(propB);
         } else {
-            // if propA or propB is undefined, sort by category
-            return 0;
+            // Handle the case where either propA or propB is undefined
+            return 0; // or you can modify this to suit your specific sorting criteria
         }
     });
+    
 
 
     console.log(sortedItems)
@@ -63,11 +65,22 @@ export default function ItemList({items, onItemSelect}) {
             
         </div>
         <ul>
-            {sortedItems.map(item => (
-            <Item 
-            key={item.id} {...item} 
-            onSelect={onItemSelect}/>
-            ))}
+            {sortedItems.map(item => {
+                try{
+                    return (
+                        <Item 
+                        key={item.id} {...item}
+                        name = {item.data.name}
+                        quantity = {item.data.quantity}
+                        category = {item.data.category} 
+                        onSelect={onItemSelect}/>
+                        
+                    );
+                } catch (error) {
+                    console.log("Error:",error);
+                    return null;
+                }
+            })}
         </ul>
         </div>
         
